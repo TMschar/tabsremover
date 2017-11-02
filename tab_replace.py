@@ -30,7 +30,7 @@ def replace_tabs_with_spaces(file_extensions, spaces):
     # Loop through all file extensions
     for ext in file_extensions:
         print('Checking file extension {}'.format(ext))
-        files = glob('src/**/*.{0}'.format(ext))
+        files = glob('src/**/*.{0}'.format(ext), recursive=True)
 
         # Loop through all files
         for file in files:
