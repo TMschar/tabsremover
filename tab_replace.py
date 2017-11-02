@@ -30,7 +30,7 @@ def replace_tabs_with_spaces(file_extensions, spaces):
     # Loop through all file extensions
     for ext in file_extensions:
         print('Checking file extension {}'.format(ext))
-        files = glob('*.{0}'.format(ext))
+        files = glob('src/**/*.{0}'.format(ext))
 
         # Loop through all files
         for file in files:
@@ -47,7 +47,7 @@ def replace_tabs_with_spaces(file_extensions, spaces):
                     tabs_found += 1
 
                     # Notify
-                    print('INFO: Found a tab at line {0}. Replaced with {1} spaces.'.format(index, spaces))
+                    print('INFO: Found a tab at line {0} in {2}. Replaced with {1} spaces.'.format(index, spaces, file))
 
                 # Replace with x spaces
                 chars = add_to_string('', spaces, ' ')
