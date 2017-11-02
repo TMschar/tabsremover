@@ -43,16 +43,16 @@ def replace_tabs_with_spaces(file_extensions, spaces):
             for index, line in enumerate(lines):
                 # Check for a tab character in the line
                 if '\t' in line:
-                    chars = add_to_string('', spaces, ' ')
-
-                    # Replace with x spaces
-                    replaced = line.replace('\t', '{0}'.format(chars))
-                    newlines.append(replaced)
-
                     # Increment tabs found
                     tabs_found += 1
 
+                    # Notify
                     print('INFO: Found a tab at line {0}. Replaced with {1} spaces.'.format(index, spaces))
+
+                # Replace with x spaces
+                chars = add_to_string('', spaces, ' ')
+                replaced = line.replace('\t', '{0}'.format(chars))
+                newlines.append(replaced)
 
             opened_file.close()
             opened_file = open(file, 'w')
